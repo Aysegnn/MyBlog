@@ -2,7 +2,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Ayşe Gönen - 2022</span>
                     </div>
                 </div>
             </footer>
@@ -49,6 +49,8 @@
     <!-- Page level custom scripts -->
     <script src="/admin/js/demo/chart-area-demo.js"></script>
     <script src="/admin/js/demo/chart-pie-demo.js"></script>
+
+    @yield('js')
 
 </body>
 
