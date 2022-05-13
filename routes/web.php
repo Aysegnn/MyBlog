@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ArticleController;
 
 //Admin Routes
 Route::get('/', function () { return view('welcome'); })->name('welcome');
@@ -12,6 +13,9 @@ Route::post('/categories/update',[CategoryController::class,'update'])->name('ca
 Route::post('/categories/delete',[CategoryController::class,'delete'])->name('categories.delete');
 
 
+Route::get('/articles', [ArticleController::class,'index'])->name('article.index');
+Route::get('/articles/create', [ArticleController::class,'create'])->name('article.create');
+Route::post('/articles/store',[ArticleController::class,'store'])->name('article.store');
 
 Route::middleware([
     'auth:sanctum',
