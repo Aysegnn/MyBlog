@@ -26,7 +26,7 @@
         <li class="nav-item">
             <a class="nav-link    href="#" data-toggle="collapse" data-target="#collapseTwo"
                 aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-edit"></i>
+                <i  style="color:white !important"  class="fas fa-fw fa-edit"></i>
                 <span>Makaleler</span>
             </a>
             <div id="collapseTwo" class="collapse  aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -41,10 +41,11 @@
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{route('categories')}}" ></a>
-               <i class="fas fa-list  "></i><span>Kategoriler</span>
+            <a class="nav-link "  @if(Request::segment(2)=='kategoriler') style="color:white !important" @endif href="{{route('categories')}}">
+                <i   style="color:white !important" class="fas fa-list  "></i>
+                <span>Kategoriler</span>
             </a>
-            
+           
         </li>
 
         <!-- Divider -->

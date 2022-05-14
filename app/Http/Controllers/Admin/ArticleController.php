@@ -57,22 +57,52 @@ class ArticleController extends Controller
 
     public function show($id)
     {
-        //
+        print_r($id);exit;
+        $article=Article::find($id);
+        echo "<pre>";print_r($article);exit;
+        return view('admin.articles.create',compact('categories'));
     }
 
     public function edit($id)
     {
-        //
+        $article=Article::findOrFail($id);
+        $categories=Category::all();   
+        return view('admin.articles.edit',compact('categories','article'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+          
+            'title'=>'min:3',
+            'image'=>'image|mimes:jpeg,png,jpg|max:2048'
+
+
+        ]);
+
+
+        $article=Article::findOrFail($id);
+        $article->title=$request->title;
+        $article->category_id=$request->category;
+        $article->content=$request->content;
+        $article->slug=Str::slug($request->title);
+
+        if($request->hasFile('image')){
+            $imageName=Str::slug($request->title). ".". $request->image->getClientOriginalExtension();
+            $request->image->move(public_path('uploads'),$imageName);
+            $article->image='uploads/'.$imageName;
+        }
+
+
+        $article->save();
+       return redirect()->route('article.index');
+      
     }
 
 
     public function destroy($id)
     {
-        //
+        Article::find($id)->delete();
+        return redirect()->route('article.index');
     }
 }

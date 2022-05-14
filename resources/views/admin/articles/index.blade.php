@@ -21,6 +21,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach($articles as $article)
+                                       
                                         <tr>
                                             <td>
                                               <img src="{{$article->image}}" width="100" >
@@ -29,9 +30,9 @@
                                             <td>{{$article->getCategoryName->name}}</td>
                                             <td>{{$article->created_at->diffForHumans()}}</td>
                                             <td >
-                                                <a href="{{route('blog-single',[$article->getCategoryName->slug,$article->slug])}}" title="Görüntüle" class="btn btn-sm btn-success"> <i class="fa fa-eye"></i> </a>
-                                                <a href="" title="Düzenle" class="btn btn-sm btn-primary"> <i class="fa fa-pen"></i> </a>
-                                               <form action="" method="post">
+                                                <a href="{{route('article.view',$article->id)}}" title="Görüntüle" class="btn btn-sm btn-success"> <i class="fa fa-eye"></i> </a>
+                                                <a href="{{route('article.edit',$article->id)}}" title="Düzenle" class="btn btn-sm btn-primary"> <i class="fa fa-pen"></i> </a>
+                                               <form action="{{route('article.delete',$article->id)}}" method="post">
                                                @method('DELETE')
                                                @csrf
                                                  <button title="Sil" class="btn btn-sm btn-danger" type="submit"> <i class="fa fa-times"></i></button>

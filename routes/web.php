@@ -14,8 +14,12 @@ Route::post('/categories/delete',[CategoryController::class,'delete'])->name('ca
 
 
 Route::get('/articles', [ArticleController::class,'index'])->name('article.index');
+Route::get('/articles/view/{id}', [ArticleController::class,'show'])->name('article.view');
 Route::get('/articles/create', [ArticleController::class,'create'])->name('article.create');
+Route::get('/articles/edit/{id}', [ArticleController::class,'edit'])->name('article.edit');
 Route::post('/articles/store',[ArticleController::class,'store'])->name('article.store');
+Route::put('/articles/update/{id}',[ArticleController::class,'update'])->name('article.update');
+Route::delete('/articles/delte/{id}',[ArticleController::class,'destroy'])->name('article.delete');
 
 Route::middleware([
     'auth:sanctum',
