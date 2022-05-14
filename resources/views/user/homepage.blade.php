@@ -7,10 +7,10 @@ Ayşe Gönen - BlogTask
                 <div class="col-md-8">
                 @foreach($articles as $article)
                     <div class="post-preview">
-                        <a href="{{route('post',$article->slug)}}">
+                        <a href="{{route('post.view',$article->id)}}">
                             <h2 class="post-title">{{$article->title}}</h2>
-                            <img src="{{$article->image}}" alt="">
-                            <h3 class="post-subtitle">{{$article->content}}</h3>
+                            <img src="{{$article->image}}" alt="" style="width:100px; height:100px">
+                            <h3 class="post-subtitle">{!!$article->content!!}</h3>
                         </a>
                         <p class="post-meta">
                             <a href="#!"> </a> <span style="float:right">{{$article->created_at->diffForHumans()}}</span>
@@ -21,11 +21,15 @@ Ayşe Gönen - BlogTask
                   @endif
               </div>
               @endforeach
-                    
+             
               <br>  
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+              {{ $articles->links() }}
                 </div>
-
+<style>
+    .col-md-8{
+        display:inline;
+    }
+</style>
                 <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">Kategoriler</h2>

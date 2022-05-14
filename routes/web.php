@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\HomepageController;
 
 //Admin Routes
 Route::get('/', function () { return view('welcome'); })->name('welcome');
@@ -24,9 +25,8 @@ Route::delete('/articles/delte/{id}',[ArticleController::class,'destroy'])->name
 
 
 //User Routes
-Route::get('/anasayfa', function () {
-    return view('user.homepage');
-});
+Route::get('/anasayfa', [HomepageController::class,'index'])->name('user.homepage');
+Route::get('/post/{id}', [HomepageController::class,'show'])->name('post.view');
 
 Route::middleware([
     'auth:sanctum',

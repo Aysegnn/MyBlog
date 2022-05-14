@@ -12,5 +12,9 @@ class Category extends Model
     protected $fiilable=[
       'name','slug'
     ];
+
+    public function articleCount(){
+      return $this->hasMany('App\Models\Article','category_id','id')->count();
+  }
     
 }
