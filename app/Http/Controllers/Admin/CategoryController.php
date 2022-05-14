@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Input;
 
 use App\Models\Category;
 
@@ -29,10 +30,10 @@ class CategoryController extends Controller
         return redirect()->route('categories')->with('succes','Kategori başarı ile oluşturuldu');
     }
 
-    public function update(Request $request){
+    public function update(Request $request,$id){
     
   
-        $category = Category::find($request->id);
+        $category = Category::find($id);
         $category->name=$request->category;
         $category->slug=Str::slug($request->slug);
         $category->save();

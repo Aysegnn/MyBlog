@@ -10,7 +10,7 @@ Ayşe Gönen - BlogTask
                     <div class="col-md-10 col-lg-8 col-xl-7">
                     
                         <h2>{{$posts->title}}</h2>
-                        <img src="{{$posts->image}}"  style="width:200px; height:200px">
+                        <img src="{{asset($posts->image)}}"  style="width:200px; height:200px">
                         <p>{!!$posts->content!!}</p>
                     
                     </div>

@@ -57,10 +57,9 @@ class ArticleController extends Controller
 
     public function show($id)
     {
-        print_r($id);exit;
-        $article=Article::find($id);
-        echo "<pre>";print_r($article);exit;
-        return view('admin.articles.create',compact('categories'));
+      
+        $article=Article::findOrFail($id);
+        return view('admin.articles.show',compact('article'));
     }
 
     public function edit($id)

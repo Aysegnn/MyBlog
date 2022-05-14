@@ -10,7 +10,7 @@ Route::get('/', function () { return view('welcome'); })->name('welcome');
 Route::get('/dashboard', function () { return view('admin.dashboard'); });
 Route::get('/categories', [CategoryController::class,'index'])->name('categories');
 Route::post('/categories/create',[CategoryController::class,'create'])->name('categories.create');
-Route::post('/categories/update',[CategoryController::class,'update'])->name('categories.update');
+Route::post('/categories/update/{id}',[CategoryController::class,'update'])->name('categories.update');
 Route::post('/categories/delete',[CategoryController::class,'delete'])->name('categories.delete');
 
 

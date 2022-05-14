@@ -61,7 +61,7 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
-        <form method="post" action="{{route('categories.update')}}">
+        <form method="post" action="{{route('categories.update',$category->id)}}">
           @csrf
           <div class="form-group">
             <label>Kategori Adı</label>
