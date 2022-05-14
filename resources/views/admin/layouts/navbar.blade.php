@@ -1,17 +1,20 @@
 
 <body id="page-top">
 
+
 <div id="wrapper">
 
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html"> 
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('article.index')}}"> 
             <div class="sidebar-brand-text mx-3">Ayşe Gönen</div>
         </a>
 
+
+
         <hr class="sidebar-divider my-0">
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="#">
                 <span>Kategoriler</a>
         </li>
 
@@ -117,10 +120,12 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Panel</h1>
-            
-                </div>
+               <!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">@yield('title')</h1>
+    <a href="" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            class="fas fa-globe fa-sm text-white-50"></i>Siteyi Görüntüle</a>
+</div>
 
                
 

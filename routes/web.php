@@ -21,6 +21,13 @@ Route::post('/articles/store',[ArticleController::class,'store'])->name('article
 Route::put('/articles/update/{id}',[ArticleController::class,'update'])->name('article.update');
 Route::delete('/articles/delte/{id}',[ArticleController::class,'destroy'])->name('article.delete');
 
+
+
+//User Routes
+Route::get('/anasayfa', function () {
+    return view('user.homepage');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -30,3 +37,4 @@ Route::middleware([
         return view('admin.homepage');
     })->name('admin.dashboard');
 });
+
